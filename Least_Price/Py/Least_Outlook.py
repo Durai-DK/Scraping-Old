@@ -23,7 +23,7 @@ def all_seller_outlook():
                 Duraikannan.R<br>
                 Phone: 8682997570</p>
             <p><img src = "D:\Durai\GMB\Reviews_count\Poorvika_logo.png"><br>
-                Poorvika Mobiles Pvt Ltd.</p>
+                Poorvika Mobiles Pvt Ltd.</p> 
         </body>
     </html>
     """
