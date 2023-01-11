@@ -86,7 +86,7 @@ def Scraping_Laptop():
 def Scraping_Mobile():
 
     heading = "Mobiles"
-    url = "https://www.poorvika.com/s?categories=categories.lvl1%3A%3D%5B%60Mobiles+%26+Accessories+%3E+Mobiles%60%5D&stock_status=stock_status%3A%3D%5B%60In+Stock%60%2C%60Out+Of+Stock%60%5D&page="
+    url = "https://www.poorvika.com/s?categories=categories.lvl1%3A%3D%5B%60Mobiles+%26+Accessories+%3E+Mobiles%60%5D&stock_status=stock_status%3A%3D%5B%60In+Stock%60%5D&page="
     Mob_range = 1
     Mob = Model(heading=heading, url=url, row_num=Mob_range)
     Mob.product_page_list(head=heading)

@@ -155,7 +155,7 @@ class PriceCompression:
             new_ws.cell(row=self.row_num, column=17).value = self.ws.cell(row=self.row_num, column=7).value
             try:
                 driver.get(url=self.ws.cell(row=self.row_num, column=7).value)
-                time.sleep(3)
+                time.sleep(1)
 
                 try:
                     print("Product Name :", driver.find_element(By.TAG_NAME, 'h1').text)

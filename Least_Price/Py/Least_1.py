@@ -1,22 +1,21 @@
 from openpyxl import load_workbook, Workbook
-# from Scraping.Least_Price.Form.Form import *
+from Scraping.Least_Price.Form.Form import *
 import datetime
 
 date = datetime.datetime.now().strftime("%d-%m-%Y")
 
-
-# excel_path = r"D:\Durai\Scraping\Accessories\Save Data's\Final Files\Accessories Price List " + date + ".xlsx"
+excel_path = r"D:\Durai\Scraping\Accessories\Save Data's\Final Files\Accessories Price List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Laptop\Save Data's\Final Files\Laptop Price Lists " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Mobile\Save Data\Final Files\Mobiles_Price_List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Tv\Save Data\Final Files\Tv Price List " + date + ".xlsx"
-excel_path = r"D:\Durai\Scraping\Kitchen_appliances\Save Data\Final Files\Kitchen Appliance Price List " + date + ".xlsx"
+# excel_path = r"D:\Durai\Scraping\Kitchen_appliances\Save Data\Final Files\Kitchen Appliance Price List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Tablets\Save Data\Final Files\Tablets Price Lists " + date + ".xlsx"
-
-# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Accessories Price List " + date + ".xlsx"
+#
+save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Accessories Price List " + date + ".xlsx"
 # save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Laptop Price Lists " + date + ".xlsx"
 # save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Mobiles_Price_List " + date + ".xlsx"
 # save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Tv Price List " + date + ".xlsx"
-save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Kitchen Appliance " + date + ".xlsx"
+# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Kitchen Appliance " + date + ".xlsx"
 # save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Tablets " + date + ".xlsx"
 
 wb = load_workbook(excel_path)
@@ -35,6 +34,7 @@ save_ws.cell(row=1, column=7).value = "Flipkart Price"
 save_ws.cell(row=1, column=8).value = "Amazon Price"
 save_ws.cell(row=1, column=9).value = "Croma price"
 save_ws.cell(row=1, column=10).value = "vijay price"
+# save_ws.cell(row=1, column=10).value = "Reliance price"
 save_ws.cell(row=1, column=11).value = "Reliance price"
 
 for r in range(2, ws.max_row + 1):
@@ -56,6 +56,7 @@ for r in range(2, ws.max_row + 1):
     a_price = ws.cell(row=r, column=6).value
     c_price = ws.cell(row=r, column=7).value
     v_price = ws.cell(row=r, column=8).value
+    # r_price = ws.cell(row=r, column=8).value
     r_price = ws.cell(row=r, column=9).value
 
     save_ws.cell(row=r, column=1).value = p_id
@@ -67,11 +68,13 @@ for r in range(2, ws.max_row + 1):
     save_ws.cell(row=r, column=8).value = a_price
     save_ws.cell(row=r, column=9).value = c_price
     save_ws.cell(row=r, column=10).value = v_price
+    # save_ws.cell(row=r, column=10).value = r_price
     save_ws.cell(row=r, column=11).value = r_price
 
 #####################################################################################################################
 
     if f_price == "NA" and a_price == "NA" and c_price == "NA" and v_price == "NA" and r_price == "NA":
+    # if f_price == "NA" and a_price == "NA" and c_price == "NA" and r_price == "NA":
         # Poorvika
         save_ws.cell(row=r, column=4).value = "Poorvika"
         save_ws.cell(row=r, column=5).value = p_price
@@ -89,7 +92,7 @@ for r in range(2, ws.max_row + 1):
 #############################################################################################################
 
         "Amazon"
-        if a_price != "NA" and p_price >= a_price:
+        if a_price != "NA" and int(p_price) >= int(a_price):
             Amazon = a_price
         else:
             Amazon = p_price + 1000
@@ -120,6 +123,7 @@ for r in range(2, ws.max_row + 1):
 
 #############################################################################################################
 
+        # value = min(Flipkart, Amazon, Croma, Reliance)
         value = min(Flipkart, Amazon, Croma, Vijay, Reliance)
 
         if value == f_price:

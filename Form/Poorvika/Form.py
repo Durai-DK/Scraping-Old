@@ -5,10 +5,16 @@ from selenium import webdriver
 from openpyxl import Workbook
 import time
 import pymongo
+#
+# date = datetime.date.today().strftime("%d-%m-%Y")
+#
+# s = Service(r"D:\Durai\Driver\chromedriver.exe")
+# driver = webdriver.Chrome(service=s)
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service as ChromeService
 
-date = datetime.date.today().strftime("%d-%m-%Y")
-
-s = Service(r"D:\Durai\Driver\chromedriver.exe")
+date = datetime.datetime.now().strftime("%d-%m-%Y")
+s = ChromeService(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=s)
 
 wb = Workbook()
@@ -79,7 +85,7 @@ class Model:
             page = 5
 
         elif kwargs.get('head') == "Mobiles":
-            page = 20
+            page = 17
 
         elif kwargs.get('head') == "Tv":
             page = 5
@@ -105,6 +111,7 @@ class Model:
 
         print(self.heading + " Complete")
         print("#" * 60)
+        driver.quit()
 
 ########################################################################################################################
     def product_1(self):

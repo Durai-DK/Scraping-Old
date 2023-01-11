@@ -1,6 +1,10 @@
 import datetime
 import win32com.client as client
 
+# from Outlook.outlook import Outlook_File
+#
+# of = Outlook_File()
+# of.data_find(head="Flipkart")
 
 def all_seller_outlook():
     date = datetime.datetime.now().strftime("%d-%m-%Y")
@@ -27,7 +31,7 @@ def all_seller_outlook():
     message.Display()
     message.To = 'Rvk@poorvika.com'
     message.CC = 'karthik@poorvika.in; mani2005poorvika@gmail.com; saravanavelu0482@poorvika.com; ' \
-                 'karpagam0064@poorvika.com; yasararafath1147@poorvika.com '
+                 'karpagam0064@poorvika.com; yasararafath1147@poorvika.com; manikandan.r@poorvika.com '
     message.Subject = "Flipkart All Seller Price  " + date
     message.HTMLBody = body
     message.Attachments.Add(att_file)

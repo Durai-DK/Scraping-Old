@@ -1,6 +1,12 @@
 import datetime
 import win32com.client as client
 
+# from Outlook.outlook import Outlook_File
+#
+# of = Outlook_File()
+# of.data_find(head="Least_Price")
+
+
 
 def all_seller_outlook():
     date = datetime.datetime.now().strftime("%d-%m-%Y")
@@ -23,8 +29,8 @@ def all_seller_outlook():
                 Duraikannan.R<br>
                 Phone: 8682997570</p>
             <p><img src = "D:\Durai\GMB\Reviews_count\Poorvika_logo.png"><br>
-                Poorvika Mobiles Pvt Ltd.</p> 
-        </body>
+                Poorvika Mobiles Pvt Ltd.</p>
+        </body>10000
     </html>
     """
 
