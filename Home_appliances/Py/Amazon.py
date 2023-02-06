@@ -10,9 +10,9 @@ print("No Of Rows",ac_ws.max_row)
 # print(ac_ws.value)
 date = datetime.date.today().strftime("%#d-%#m-%Y")
 
+
+
 options = webdriver.ChromeOptions()
-
-
 # prefs = {'profile.default_content_setting_values': {'cookies': 2, 'images': 2,  'popups': 2, 'geolocation':2,
 prefs = {'profile.default_content_setting_values': {'notifications': 2, 'auto_select_certificate': 2, 'fullscreen': 2,'popups': 2,
                                                     'mouselock': 2, 'mixed_script': 2, 'media_stream': 2,'plugins': 2,

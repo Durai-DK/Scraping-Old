@@ -1,6 +1,4 @@
-from Scraping.Accessories.Py.Form.Form_All import RunCompression
-
-# Range 350 to 759
+from Scraping.Form.Form_All import RunCompression
 
 Rc = RunCompression()
-Rc.run__all(head="Accessories",start=501,end=870,path=3)
+Rc.run__all(head="Accessories",start=451,end=900,path=3)

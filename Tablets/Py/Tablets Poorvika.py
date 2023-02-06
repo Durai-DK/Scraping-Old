@@ -1,3 +1,3 @@
-from Scraping.Form.Poorvika.Poorvika_Scraping import *
+from Scraping.Form.Poorvika_Scraping import *
 
 Scraping_Tab()

@@ -5,7 +5,7 @@ date = datetime.datetime.now().strftime("%d-%m-%Y")
 
 
 ######################################################################################################################
-#
+
 excel_path = r"D:\Durai\Scraping\Home_appliances\Save Date's\Final Files\Home_appliances " + date + ".xlsx"
 
 ######################################################################################################################
@@ -34,6 +34,17 @@ save_ws.cell(row=1, column=11).value = "Croma price"
 save_ws.cell(row=1, column=12).value = "Amazon price"
 save_ws.cell(row=1, column=13).value = "Flipkart price"
 save_ws.cell(row=1, column=14).value = "Reliance price"
+
+flip = 0
+ama = 0
+cro = 0
+va = 0
+vi = 0
+da = 0
+poor = 0
+less = 0
+sa = 0
+rel = 0
 
 
 for r in range(2, ws.max_row + 1):
@@ -154,44 +165,81 @@ for r in range(2, ws.max_row + 1):
         if value == Sathiya_value:
             cell_name = "sathya"
             min_value = s_price
+            sa = sa+1
 
         if value == vasanth_value:
             cell_name = "vasanth"
             min_value = va_price
+            va = va +1
 
         if value == Darling_value:
             cell_name = "Darling"
             min_value = d_price
+            da = da+1
 
         if value == vivek_value:
             cell_name = "viveks"
             min_value = vi_price
+            vi = vi+1
 
         if value == croma_value:
             cell_name = "Croma"
             min_value = c_price
+            cro = cro+1
 
         if value == Amazon_value:
             cell_name = "Amazon"
             min_value = a_price
+            ama = ama+1
 
         if value == Flipkart_value:
             cell_name = "Flipkart"
             min_value = f_price
+            flip = flip+1
 
         if value == Reliance_value:
             cell_name = "Reliance"
             min_value = r_price
+            rel = rel + 1
 
         if value >= p_price:
             cell_name = "Poorvika"
             min_value = p_price
+            poor = poor+1
 
         if value < p_price and value + (value * 5) / 100 >= p_price:
             cell_name = "poorvika Greater then 5%"
             min_value = value
+            less = less+1
 
         save_ws.cell(row=r, column=4).value = cell_name
         save_ws.cell(row=r, column=5).value = min_value
 
-        save_wb.save(save_path)
+save_ws1 = "Color"
+save_wb.create_sheet(save_ws1)
+
+save_wb[save_ws1]["B2"] = "Brands"
+save_wb[save_ws1]["B3"] = "Flipkart"
+save_wb[save_ws1]["B4"] = "Amazon"
+save_wb[save_ws1]["B5"] = "Croma"
+save_wb[save_ws1]["B6"] = "Vasanth"
+save_wb[save_ws1]["B7"] = "Reliance"
+save_wb[save_ws1]["B8"] = "sathya"
+save_wb[save_ws1]["B9"] = "Viveks"
+save_wb[save_ws1]["B10"] = "Darling"
+save_wb[save_ws1]["B11"] = "Poorvika"
+save_wb[save_ws1]["B12"] = "poorvika Greater then 5%"
+
+save_wb[save_ws1]["c2"] = "Totals"
+save_wb[save_ws1]["c3"] = flip
+save_wb[save_ws1]["c4"] = ama
+save_wb[save_ws1]["c5"] = cro
+save_wb[save_ws1]["c6"] = va
+save_wb[save_ws1]["c7"] = rel
+save_wb[save_ws1]["c8"] = sa
+save_wb[save_ws1]["c9"] = vi
+save_wb[save_ws1]["c10"] = da
+save_wb[save_ws1]["c11"] = poor
+save_wb[save_ws1]["c12"] = less
+
+save_wb.save(save_path)

@@ -5,17 +5,17 @@ import datetime
 date = datetime.datetime.now().strftime("%d-%m-%Y")
 
 excel_path = r"D:\Durai\Scraping\Accessories\Save Data's\Final Files\Accessories Price List " + date + ".xlsx"
-# excel_path = r"D:\Durai\Scraping\Laptop\Save Data's\Final Files\Laptop Price Lists " + date + ".xlsx"
-# excel_path = r"D:\Durai\Scraping\Mobile\Save Data\Final Files\Mobiles_Price_List " + date + ".xlsx"
-# excel_path = r"D:\Durai\Scraping\Tv\Save Data\Final Files\Tv Price List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Kitchen_appliances\Save Data\Final Files\Kitchen Appliance Price List " + date + ".xlsx"
+# excel_path = r"D:\Durai\Scraping\Mobile\Save Data\Final Files\Mobiles_Price_List " + date + ".xlsx"
+# excel_path = r"D:\Durai\Scraping\Laptop\Save Data's\Final Files\Laptop Price Lists " + date + ".xlsx"
+# excel_path = r"D:\Durai\Scraping\Tv\Save Data\Final Files\Tv Price List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Tablets\Save Data\Final Files\Tablets Price Lists " + date + ".xlsx"
-#
+
 save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Accessories Price List " + date + ".xlsx"
-# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Laptop Price Lists " + date + ".xlsx"
-# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Mobiles_Price_List " + date + ".xlsx"
-# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Tv Price List " + date + ".xlsx"
 # save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Kitchen Appliance " + date + ".xlsx"
+# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Mobiles_Price_List " + date + ".xlsx"
+# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Laptop Price Lists " + date + ".xlsx"
+# save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Tv Price List " + date + ".xlsx"
 # save_path = r"D:\Durai\Scraping\Least_Price\Save Data\Least Price Tablets " + date + ".xlsx"
 
 wb = load_workbook(excel_path)
@@ -36,6 +36,14 @@ save_ws.cell(row=1, column=9).value = "Croma price"
 save_ws.cell(row=1, column=10).value = "vijay price"
 # save_ws.cell(row=1, column=10).value = "Reliance price"
 save_ws.cell(row=1, column=11).value = "Reliance price"
+
+flip = 0
+ama = 0
+cro = 0
+vj = 0
+relia = 0
+poor = 0
+less = 0
 
 for r in range(2, ws.max_row + 1):
 # for r in range(2, 100):
@@ -129,33 +137,61 @@ for r in range(2, ws.max_row + 1):
         if value == f_price:
             cell_name = "Flipkart"
             min_value = f_price
+            flip = flip + 1
 
         if value == a_price:
             cell_name = "Amazon"
             min_value = a_price
+            ama = ama+1
 
         if value == c_price:
             cell_name = "Croma"
             min_value = c_price
+            cro = cro + 1
 
         if value == v_price:
             cell_name = "Vijay"
             min_value = v_price
+            vj = vj+1
 
         if value == r_price:
             cell_name = "Reliance"
             min_value = r_price
+            relia = relia+1
 
         if value >= p_price:
             cell_name = "Poorvika"
             min_value = p_price
+            poor = poor+1
 
         if value < p_price and value + (value * 5) / 100 >= p_price:
             cell_name = "poorvika Greater then 5%"
             min_value = value
+            less = less+1
 
 
         save_ws.cell(row=r, column=4).value = cell_name
         save_ws.cell(row=r, column=5).value = min_value
 
-        save_wb.save(save_path)
+save_ws1 = "Color"
+save_wb.create_sheet(save_ws1)
+
+save_wb[save_ws1]["B2"] = "Brands"
+save_wb[save_ws1]["B3"] = "Flipkart"
+save_wb[save_ws1]["B4"] = "Amazon"
+save_wb[save_ws1]["B5"] = "Croma"
+save_wb[save_ws1]["B6"] = "Vijay sale"
+save_wb[save_ws1]["B7"] = "Reliance"
+save_wb[save_ws1]["B8"] = "Poorvika"
+save_wb[save_ws1]["B9"] = "poorvika Greater then 5%"
+
+save_wb[save_ws1]["c2"] = "Totals"
+save_wb[save_ws1]["c3"] = flip
+save_wb[save_ws1]["c4"] = ama
+save_wb[save_ws1]["c5"] = cro
+save_wb[save_ws1]["c6"] = vj
+save_wb[save_ws1]["c7"] = relia
+save_wb[save_ws1]["c8"] = poor
+save_wb[save_ws1]["c9"] = less
+
+save_wb.save(save_path)
