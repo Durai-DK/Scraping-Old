@@ -5,19 +5,19 @@ import datetime
 
 date = datetime.datetime.now().strftime("%d-%m-%Y")
 
-excel_path = r"D:\Durai\Scraping\Accessories\Save Data's\Final Files\Accessories Price List " + date + ".xlsx"
+# excel_path = r"D:\Durai\Scraping\Accessories\Save Data's\Final Files\Accessories Price List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Laptop\Save Data's\Final Files\Laptop Price Lists " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Mobile\Save Data\Final Files\Mobiles_Price_List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Tv\Save Data\Final Files\Tv Price List " + date + ".xlsx"
 # excel_path = r"D:\Durai\Scraping\Kitchen_appliances\Save Data\Final Files\Kitchen Appliance Price List " + date + ".xlsx"
-# excel_path = r"D:\Durai\Scraping\Tablets\Save Data\Final Files\Tablets Price Lists " + date + ".xlsx"
+excel_path = r"D:\Durai\Scraping\Tablets\Save Data\Final Files\Tablets Price Lists " + date + ".xlsx"
 
-Name = "Accessories"
+# Name = "Accessories"
 # Name = "Laptop"
 # Name = "Mobiles"
 # Name = "Tv"
 # Name = "Kitchen Appliance"
-# Name = "Tablets"
+Name = "Tablets"
 
 
 
